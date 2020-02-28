@@ -1,0 +1,10 @@
+<div class="statement-list-container">
+    <input type="text" name="search" id="statement-search" 
+        placeholder="模糊查询语句id, 匹配以ex:开头"
+        [(ngModel)]="statementIdForSearch"
+         (keyup.enter)="search(value)">
+    <ul class="statement-list">
+        <li class="statement-item" *ngFor="let item of statementIds">{{item}}</li>
+    </ul>
+</div>
+

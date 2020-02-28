@@ -1,0 +1,13 @@
+.statement-display {
+    display: inline-block;
+}
+.tabs {
+    width: 100px;
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    -webkit-box-align: start;
+}
+
+rebatis-tab {
+    display: inline-block;
+}

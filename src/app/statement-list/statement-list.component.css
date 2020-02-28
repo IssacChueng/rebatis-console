@@ -1,0 +1,24 @@
+.statement-list {
+    /* clear: both; */
+    font-weight: bolder;
+    list-style: none;
+    padding: 0px;
+    width: 100px;
+    height: 40px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.statement-list::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+}
+
+.statement-list::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgb(0, 0, 0, .3);
+    box-shadow: inset 0 0 6px rgb(0, 0, 0, .3);
+}
+
+.statement-list::-webkit-scrollbar-thumb {
+    background-color: red;
+    outline: #333 solid 1px
+}
