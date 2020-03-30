@@ -33,6 +33,35 @@ export class StatementService {
       }).catch(this.handleError);
   }
 
+  getStatement(url: string, statementId: string): Promise<StatementModel> {
+    url = url + "/rebatis/statement/";
+    if (statementId != undefined && statementId != '') {
+      url = url + statementId;
+    }
+    return this.http.get(url, {
+      headers: this.httpHeaders
+    })
+      .toPromise()
+      .then((result: StatementModel) => {
+        return result;
+      })
+      .catch(this.handleError);
+  }
+
+  refreshStatement(url: string, statement: StatementModel): Promise<number> {
+    url = url + "/rebatis/statement";
+    return this.http.post(url, 
+      statement, 
+      {
+      headers: this.httpHeaders,
+    })
+    .toPromise()
+    .then((result: number) => {
+      return result;
+    })
+    .catch(this.handleError);
+  }
+
   private handleError(error: any): Promise<any> {
     console.error('An error occured', error);
     return Promise.reject(error.message || error);

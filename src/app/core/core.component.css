@@ -1,13 +1,26 @@
 .statement-display {
     display: inline-block;
+    height: 100%;
 }
 .tabs {
     width: 100px;
-    display: -webkit-box;
+    display: -webkit-flex;
     -webkit-box-orient: horizontal;
     -webkit-box-align: start;
 }
 
+.statements {
+    display: -webkit-box;
+    height: 100vh;
+    -webkit-box-orient: horizontal;
+    -webkit-box-align: start;
+}
 rebatis-tab {
     display: inline-block;
+}
+
+statement-item {
+    width: 50%;
+    display: block;
+    margin-left: 50px;
 }

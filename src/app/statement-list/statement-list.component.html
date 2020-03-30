@@ -4,7 +4,9 @@
         [(ngModel)]="statementIdForSearch"
          (keyup.enter)="search(value)">
     <ul class="statement-list">
-        <li class="statement-item" *ngFor="let item of statementIds">{{item}}</li>
+        <li class="statement-item" *ngFor="let item of statementIds" (click)="activeStatement(item)">
+            <strong>{{item}}</strong>
+        </li>
     </ul>
 </div>
 

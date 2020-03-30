@@ -1,12 +1,19 @@
+.statement-list-container {
+    height: 100%;
+}
 .statement-list {
     /* clear: both; */
     font-weight: bolder;
     list-style: none;
     padding: 0px;
-    width: 100px;
-    height: 40px;
-    overflow-x: hidden;
+    width: 200px;
+    height: 100%;
+    overflow-x: scroll;
     overflow-y: scroll;
+}
+.statement-list:hover {
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .statement-list::-webkit-scrollbar {
     height: 6px;

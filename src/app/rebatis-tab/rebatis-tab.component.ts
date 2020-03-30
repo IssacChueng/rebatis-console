@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Tab } from '../core/tab.model';
 import { style, state, transition, animation, animate, trigger } from '@angular/animations';
 
@@ -23,7 +23,7 @@ export class RebatisTabComponent implements OnInit {
 
   @Input() tab: Tab;
 
-  @Output() onCloseClick: Event
+  @Output() onCloseClick: EventEmitter<Tab> = new EventEmitter();
 
   constructor() { }
 
@@ -31,5 +31,9 @@ export class RebatisTabComponent implements OnInit {
   }
 
   ngAfterViewInit() {
+  }
+
+  close() {
+    this.onCloseClick.emit(this.tab);
   }
 }

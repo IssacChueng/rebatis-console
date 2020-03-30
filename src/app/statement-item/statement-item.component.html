@@ -1,4 +1,8 @@
 <div class="item">
-    <strong>statement here!</strong>
-    <p>{{ip}}</p>
+    <pre>
+        <code [hidden]="show==1" mwlHighlightJs [source]="xml" language="xml"></code>
+        <codemirror *ngIf="show==1" [(ngModel)]="xml"></codemirror>
+    </pre>
+    <input type="button" value="编辑" (click)="edit()">
+    <input type="submit" value="刷新mapper" (click)="refresh()">
 </div>

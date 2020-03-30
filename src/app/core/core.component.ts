@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Tab } from './tab.model';
+import { StatementIdService } from '../service/exchange/statement-id.service';
 
 @Component({
   selector: 'app-core',
@@ -18,7 +19,7 @@ export class CoreComponent implements OnInit {
 
   activeIp: number;
 
-  constructor() { }
+  constructor(private statementIdService: StatementIdService) { }
 
   ngOnInit() {
     this.tabs = Array.of();
@@ -43,5 +44,22 @@ export class CoreComponent implements OnInit {
     this.activeIp = this.baseUrls.length - 1;
     console.log(this.tabs.length);
     console.log(this.tabs[0].address + this.tabs[0].name);
+  }
+
+  //切换tab
+  activeTab(i: number) {
+    console.log("active tab index = " + i);
+    this.activeIp = i;
+    this.statementIdService.changeBaseUrl(this.baseUrls[this.activeIp]);
+  }
+
+  closeTab(tab: Tab) {
+    console.log("关闭标签" + tab.address)
+    let index = this.tabs.indexOf(tab);
+    if (index < 0) { }
+    else {
+      this.tabs.splice(index, 1);
+      this.baseUrls.splice(index, 1);
+    }
   }
 }

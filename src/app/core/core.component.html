@@ -1,15 +1,17 @@
-<div>
+<div class="rebatis">
     <input type="text" [(ngModel)]="address" name="target-address" id="target-address" (onEnterUp)="addTab()">
     <input type="text" [(ngModel)]="name" name="target-name" id="target-name" (onEnterUp)="addTab()">
-    <input type="submit" value="submit" id="target-add" (click)="addTab()">
+    <input type="submit" value="连接" id="target-add" (click)="addTab()">
     <div class="tabs">
-        <rebatis-tab *ngFor="let tab of tabs" [tab]="tab" class="tab-item"></rebatis-tab>
+        <rebatis-tab *ngFor="let tab of tabs index as i" [tab]="tab" class="tab-item" (onActiveClick)="activeTab(i)" 
+                    (onCloseClick)="closeTab($event)"
+            ></rebatis-tab>
     </div>
-    <div>
+    <div class="statements">
         <statement-list class="statement-display" *ngIf="baseUrls?.length > 0" [url]="baseUrls[activeIp]">
 
         </statement-list>
-        <statement-item class="statement-display" *ngIf="baseUrls?.length > 0" >
+        <statement-item  *ngIf="baseUrls?.length > 0" >
 
         </statement-item>
     </div>

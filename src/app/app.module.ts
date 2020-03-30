@@ -11,7 +11,17 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule }from '@angular/platform-browser/animations';
 import { StatementService } from './service/statement/statement.service';
 import { HttpClientModule } from '@angular/common/http';
+import { HighlightJsModule, HIGHLIGHT_JS } from 'angular-highlight-js'
+import 'highlight.js/styles/github.css';
+import * as  hljs from 'highlight.js/lib/highlight';
+import * as xmlhljs from 'highlight.js/lib/languages/xml';
+import { CodemirrorModule } from 'ng2-codemirror';
 
+export function highlightJsFactory(): any {
+  // only register the typescript language
+  hljs.registerLanguage('xml', xmlhljs);
+  return hljs;
+}
 
 @NgModule({
   declarations: [
@@ -26,12 +36,18 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    HighlightJsModule,
+    CodemirrorModule
   ],
   providers: [
     {
       provide: 'service/statement',
       useClass: StatementService
+    },
+    {
+      provide: HIGHLIGHT_JS,
+      useFactory: highlightJsFactory
     }
   ],
   bootstrap: [AppComponent]
