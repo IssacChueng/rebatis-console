@@ -3,7 +3,7 @@
     <input type="text" [(ngModel)]="name" name="target-name" id="target-name" (onEnterUp)="addTab()">
     <input type="submit" value="连接" id="target-add" (click)="addTab()">
     <div class="tabs">
-        <rebatis-tab *ngFor="let tab of tabs index as i" [tab]="tab" class="tab-item" (onActiveClick)="activeTab(i)" 
+        <rebatis-tab *ngFor="let tab of tabs index as i" [tab]="tab" class="tab-item" (click)="activeTab(i)" 
                     (onCloseClick)="closeTab($event)"
             ></rebatis-tab>
     </div>

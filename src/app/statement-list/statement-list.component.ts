@@ -42,6 +42,7 @@ export class StatementListComponent implements OnInit {
 
   this.statementIdService.baseUrlEventer
       .subscribe(urlValue => {
+        console.log("url改变");
         this.url = urlValue;
         this.statementIds = Array.of();
         this.resetStatement();
@@ -53,6 +54,8 @@ export class StatementListComponent implements OnInit {
     .then(statementIdResults => {
       this.statementIds = statementIdResults;
     });
+    console.log("xml reset")
+    this.statementIdService.emitXml("");
   
   }
 

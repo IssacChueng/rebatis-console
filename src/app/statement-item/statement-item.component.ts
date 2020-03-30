@@ -37,6 +37,9 @@ export class StatementItemComponent implements OnInit {
         this.show = 0;
         console.log("恢复状态")
         this.xml = xmlValue;
+        if (this.xml == '' || this.xml.length == 0) {
+          this.show = 1;
+        }
       })
   }
 
